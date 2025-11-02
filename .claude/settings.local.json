@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c copy README.md publishMediaNews-Intercom-v1.1.0)",
+      "Bash(cmd /c copy LICENSE publishMediaNews-Intercom-v1.1.0)",
+      "Bash(cmd /c copy AudioWdmToAsioENABLE_NETWORK_ACCESS.bat publishMediaNews-Intercom-v1.1.0)",
+      "Bash(cmd /c dir /b publishMediaNews-Intercom-v1.1.0)",
+      "Bash(powershell.exe:*)",
+      "Bash(test -f:*)",
+      "Bash(test:*)",
+      "Bash(unzip:*)",
+      "Bash(\"/c/Program Files (x86)/Inno Setup 6/ISCC.exe\":*)",
+      "Bash(where:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

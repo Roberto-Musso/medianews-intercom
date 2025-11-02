@@ -1,0 +1,899 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaNews Intercom v1.1 - User Manual</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Calibri', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28pt;
+            font-weight: bold;
+            margin-top: 40pt;
+            margin-bottom: 20pt;
+            page-break-after: avoid;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10pt;
+        }
+
+        h1:first-of-type {
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 20pt;
+            font-weight: bold;
+            margin-top: 30pt;
+            margin-bottom: 15pt;
+            page-break-after: avoid;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 5pt;
+        }
+
+        h3 {
+            color: #555;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 20pt;
+            margin-bottom: 10pt;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: #666;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 15pt;
+            margin-bottom: 8pt;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10pt 0;
+            text-align: justify;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2pt 4pt;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 10pt;
+            color: #c7254e;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            border-left: 4px solid #3498db;
+            padding: 12pt;
+            margin: 15pt 0;
+            overflow-x: auto;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        ul, ol {
+            margin: 10pt 0;
+            padding-left: 30pt;
+        }
+
+        li {
+            margin: 5pt 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15pt 0;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8pt;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        strong {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .cover-page {
+            text-align: center;
+            padding: 100pt 0;
+            page-break-after: always;
+        }
+
+        .cover-title {
+            font-size: 36pt;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20pt;
+        }
+
+        .cover-subtitle {
+            font-size: 24pt;
+            color: #7f8c8d;
+            margin-bottom: 40pt;
+        }
+
+        .cover-version {
+            font-size: 18pt;
+            color: #95a5a6;
+            margin-bottom: 60pt;
+        }
+
+        .cover-info {
+            font-size: 12pt;
+            color: #7f8c8d;
+            line-height: 2;
+        }
+
+        .no-print {
+            background: #3498db;
+            color: white;
+            padding: 15pt;
+            margin: -20px -20px 30pt -20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .print-button {
+            background: white;
+            color: #3498db;
+            border: 2px solid white;
+            padding: 10pt 20pt;
+            font-size: 14pt;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10pt;
+            display: inline-block;
+        }
+
+        .print-button:hover {
+            background: #ecf0f1;
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            pre, table {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+
+        @media screen {
+            body {
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h2 style="margin: 0; color: white; border: none;">MediaNews Intercom v1.1 - User Manual</h2>
+        <p style="margin: 10pt 0 0 0;">Ready to save as PDF</p>
+        <button class="print-button" onclick="window.print()">ðŸ“„ Save as PDF (Ctrl+P)</button>
+    </div>
+
+    <div class="cover-page">
+        <div class="cover-title">MediaNews Intercom</div>
+        <div class="cover-subtitle">User Manual</div>
+        <div class="cover-version">Version 1.1.0</div>
+        <div class="cover-info">
+            Professional 8-Channel Audio Intercom System<br>
+            with Remote Web Control<br>
+            <br>
+            November 2025<br>
+            <br>
+            Copyright Â© 2025 Roberto Musso<br>
+            MIT License
+        </div>
+    </div>
+
+    <p><h1>MediaNews Intercom v1.1 - User Manual</h1></p><p><h2>Table of Contents</h2></p><p><ul><li><a href="#introduction">Introduction</a></li>
+<li><a href="#system-requirements">System Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#first-time-setup">First-Time Setup</a></li>
+<li><a href="#understanding-the-interface">Understanding the Interface</a></li>
+<li><a href="#basic-operations">Basic Operations</a></li>
+<li><a href="#advanced-features">Advanced Features</a></li>
+<li><a href="#web-remote-control">Web Remote Control</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+<li><a href="#faq">FAQ</a></li></ul></p><p>---</p><p><h2>Introduction</h2></p><p>MediaNews Intercom is a professional 8-channel audio intercom system designed for broadcast studios, recording facilities, live sound environments, and any professional audio application requiring selective communication between multiple channels.</p><p><h3>Key Features</h3></p><p><ul><li><strong>8 Independent Channels</strong>: Each with individual Talk and Listen controls</li>
+<li><strong>Dual Audio Paths</strong>: Simultaneous Talk (send) and Listen (receive) on each channel</li>
+<li><strong>ASIO Integration</strong>: Professional low-latency audio interface support</li>
+<li><strong>Web Remote Control</strong>: Control from any device on your local network</li>
+<li><strong>Individual Level Controls</strong>: Precise input and output level adjustment (0-130)</li>
+<li><strong>Real-time VU Meters</strong>: Visual feedback for all channels</li>
+<li><strong>Flexible Channel Mapping</strong>: Route any software channel to any physical ASIO channel</li></ul></p><p><h3>What This Manual Covers</h3></p><p>This manual will guide you through:
+<ul><li>Installing and configuring the software</li>
+<li>Understanding the user interface</li>
+<li>Operating the Talk and Listen functions</li>
+<li>Adjusting audio levels</li>
+<li>Using the web remote control</li>
+<li>Troubleshooting common issues</li>
+<li>Optimizing performance</li></ul></p><p>---</p><p><h2>System Requirements</h2></p><p><h3>Minimum Requirements</h3></p><p><ul><li><strong>Operating System</strong>: Windows 10 (64-bit) or Windows 11</li>
+<li><strong>Processor</strong>: Intel Core i5 or AMD equivalent (2.5 GHz or faster)</li>
+<li><strong>RAM</strong>: 4 GB minimum (8 GB recommended)</li>
+<li><strong>Storage</strong>: 200 MB free disk space</li>
+<li><strong>Audio Interface</strong>: ASIO-compatible audio device with at least 8 input and 8 output channels</li></ul></p><p><h3>Required Audio Drivers</h3></p><p>You must have an <strong>ASIO driver</strong> installed. Options include:</p><p><li><strong>Native ASIO Driver</strong> (Recommended)</li>
+   - Provided by your audio interface manufacturer
+   - Offers best performance and lowest latency
+   - Examples: RME, Focusrite, MOTU, Universal Audio drivers</p><p><li><strong>ASIO4ALL</strong> (Universal Option)</li>
+   - Free ASIO driver for any audio device
+   - Download: http://www.asio4all.org/
+   - Good for testing and general use</p><p><li><strong>FlexASIO</strong> (Open Source)</li>
+   - Modern open-source ASIO driver
+   - Download: https://github.com/dechamps/FlexASIO
+   - Flexible configuration options</p><p><h3>Network Requirements (for Web Interface)</h3></p><p><ul><li><strong>Local Network</strong>: Ethernet or Wi-Fi connection</li>
+<li><strong>Firewall</strong>: Port 8080 must be allowed (configured during installation)</li>
+<li><strong>Remote Devices</strong>: Any device with a modern web browser</li></ul></p><p>---</p><p><h2>Installation</h2></p><p><h3>Option 1: Using the Windows Installer (Recommended)</h3></p><p><ul><li><strong>Download</strong> <code>MediaNews-Intercom-Setup-v1.1.0.exe</code> from the <a href="https://github.com/robertomusso/medianews-intercom/releases">Releases page</a></li></p><p><li><strong>Run the installer</strong></li></ul>
+   - Double-click the downloaded file
+   - If prompted by Windows Defender, click "More info" → "Run anyway"</p><p><li><strong>Follow the installation wizard</strong>:</li>
+   - Accept the license agreement (MIT License)
+   - Choose installation directory (default: <code>C:\Program Files\MediaNews Intercom</code>)
+   - Select optional features:
+     - ✅ <strong>Desktop shortcut</strong> (recommended)
+     - ✅ <strong>Enable network access</strong> (for web interface)</p><p><li><strong>Complete installation</strong></li>
+   - Click "Install"
+   - If prompted for administrator privileges, click "Yes"
+   - Click "Finish" to launch the application</p><p><h3>Option 2: Portable ZIP Version</h3></p><p><ul><li><strong>Download</strong> <code>MediaNews-Intercom-v1.1.0-Portable.zip</code></li></p><p><li><strong>Extract</strong> to your preferred location</li></ul>
+   - Right-click → "Extract All..."
+   - Choose destination folder</p><p><ul><li><strong>Run</strong> <code>MediaNews-Intercom.exe</code></li></p><p><li><strong>Enable Network Access</strong> (if needed)</li></ul>
+   - Run <code>ENABLE_NETWORK_ACCESS.bat</code> as Administrator
+   - This configures firewall rules for web interface</p><p><h3>Post-Installation: ASIO Driver Setup</h3></p><p>If you don't have an ASIO driver:</p><p><li><strong>Install ASIO4ALL</strong>:</li>
+   - Download from http://www.asio4all.org/
+   - Run installer with default settings
+   - Restart your computer</p><p><li><strong>Configure ASIO4ALL</strong> (if using):</li>
+   - Open ASIO4ALL settings from system tray
+   - Enable your audio interface
+   - Set buffer size (start with 512 samples)</p><p>---</p><p><h2>First-Time Setup</h2></p><p><h3>Step 1: Launch the Application</h3></p><p><ul><li>Double-click the desktop shortcut, or</li>
+<li>Start Menu → MediaNews Intercom</li></ul></p><p><h3>Step 2: Open Settings</h3></p><p><ul><li>Click the <strong>"Settings"</strong> button in the bottom-right corner</li>
+<li>The Settings window will open</li></ul></p><p><h3>Step 3: Configure Audio Devices</h3></p><p><h4>Microphone (WDM Input Device)</h4></p><p><ul><li><strong>Purpose</strong>: Your talk microphone input</li>
+<li><strong>Selection</strong>: Choose your microphone from the dropdown</li>
+<li><strong>Example</strong>: "Microphone (USB Audio Device)"</li>
+<li><strong>Tip</strong>: Use a dedicated microphone for best quality</li></ul></p><p><h4>Speaker (WDM Output Device)</h4></p><p><ul><li><strong>Purpose</strong>: Where you'll hear the Listen channels</li>
+<li><strong>Selection</strong>: Choose your headphones or speakers</li>
+<li><strong>Example</strong>: "Headphones (USB Audio Device)"</li>
+<li><strong>Important</strong>: Use headphones to prevent feedback</li></ul></p><p><h4>ASIO Device</h4></p><p><ul><li><strong>Purpose</strong>: Professional audio interface for the 8 channels</li>
+<li><strong>Selection</strong>: Choose your ASIO driver</li>
+<li><strong>Example</strong>: "RME Fireface", "ASIO4ALL", "FlexASIO"</li>
+<li><strong>Note</strong>: This must be running before other audio applications</li></ul></p><p><h4>Buffer Size</h4></p><p><ul><li><strong>Purpose</strong>: Balance between latency and stability</li>
+<li><strong>Range</strong>: 10-500 milliseconds</li>
+<li><strong>Recommendations</strong>:</li></ul>
+  - <strong>Low Latency</strong> (30-50ms): For live use with powerful computers
+  - <strong>Balanced</strong> (100-150ms): General purpose, good stability
+  - <strong>High Stability</strong> (200-300ms): Slower computers or network streaming</p><p><h3>Step 4: Configure Channel Mapping</h3></p><p>Each of the 8 software channels can be mapped to any physical ASIO channel.</p><p><strong>For each channel (1-8), configure</strong>:</p><p><ul><li><strong>ASIO Input Channel</strong>: Which physical input to receive Listen audio from</li>
+<li><strong>ASIO Output Channel</strong>: Which physical output to send Talk audio to</li></ul></p><p><strong>Default Mapping</strong> (recommended for beginners):
+``<code>
+Channel 1 → ASIO Input 0, ASIO Output 0
+Channel 2 → ASIO Input 1, ASIO Output 1
+Channel 3 → ASIO Input 2, ASIO Output 2
+...and so on
+</code>`<code></p><p><strong>Custom Mapping Example</strong> (studio talkback):
+</code>`<code>
+Channel 1 (Drummer)      → ASIO Input 0, ASIO Output 0
+Channel 2 (Guitarist)    → ASIO Input 1, ASIO Output 1
+Channel 3 (Bassist)      → ASIO Input 2, ASIO Output 2
+Channel 4 (Vocalist)     → ASIO Input 3, ASIO Output 3
+Channel 5 (Control Room) → ASIO Input 4, ASIO Output 4
+Channels 6-8 (Spare)     → As needed
+</code>`<code></p><p><h3>Step 5: Save Configuration</h3></p><p><ul><li>Click <strong>"OK"</strong> to save all settings</li>
+<li>Settings are automatically saved to </code>intercom_settings.json<code></li>
+<li>They will be restored next time you launch the application</li></ul></p><p>---</p><p><h2>Understanding the Interface</h2></p><p><h3>Main Window Layout</h3></p><p>The main window is divided into several sections:</p><p></code>`<code>
+┌─────────────────────────────────────────────────────┐
+│  MediaNews Intercom v1.1                           │
+├─────────────────────────────────────────────────────┤
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐│
+│  │Channel 1│  │Channel 2│  │Channel 3│  │Channel 4││
+│  │         │  │         │  │         │  │         ││
+│  │  [TALK] │  │  [TALK] │  │  [TALK] │  │  [TALK] ││
+│  │ [LISTEN]│  │ [LISTEN]│  │ [LISTEN]│  │ [LISTEN]││
+│  │  (knob) │  │  (knob) │  │  (knob) │  │  (knob) ││
+│  │  (knob) │  │  (knob) │  │  (knob) │  │  (knob) ││
+│  │  [VU]   │  │  [VU]   │  │  [VU]   │  │  [VU]   ││
+│  └─────────┘  └─────────┘  └─────────┘  └─────────┘│
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐│
+│  │Channel 5│  │Channel 6│  │Channel 7│  │Channel 8││
+│  └─────────┘  └─────────┘  └─────────┘  └─────────┘│
+├─────────────────────────────────────────────────────┤
+│  [START] [STOP]              [Settings] [Log ▼/▲]  │
+├─────────────────────────────────────────────────────┤
+│  Log Console                                        │
+│  > System ready...                                  │
+└─────────────────────────────────────────────────────┘
+</code>`<code></p><p><h3>Channel Strip Components</h3></p><p>Each channel strip contains:</p><p><h4>1. Channel Name/Number</h4>
+<ul><li>Displays channel identifier (e.g., "Channel 1")</li>
+<li>Can be customized in Settings</li></ul></p><p><h4>2. TALK Button</h4>
+<li><strong>Color States</strong>:</li>
+  - <strong>Gray</strong>: Talk is OFF (default)
+  - <strong>Red</strong>: Talk is ACTIVE (your microphone is being sent to this channel)
+<ul><li><strong>Function</strong>: Click to toggle sending your microphone to this ASIO output</li>
+<li><strong>Multiple Channels</strong>: You can activate Talk on multiple channels simultaneously</li></ul></p><p><h4>3. LISTEN Button</h4>
+<li><strong>Color States</strong>:</li>
+  - <strong>Gray</strong>: Listen is OFF (default)
+  - <strong>Cyan/Blue</strong>: Listen is ACTIVE (you're hearing this channel)
+<ul><li><strong>Function</strong>: Click to toggle receiving audio from this ASIO input</li>
+<li><strong>Mixing</strong>: Multiple Listen channels are automatically mixed together</li></ul></p><p><h4>4. Input Level Knob</h4>
+<ul><li><strong>Purpose</strong>: Controls the volume of incoming Listen audio</li>
+<li><strong>Range</strong>: 0-130</li></ul>
+  - 0 = Silence (muted)
+  - 100 = Unity gain (normal volume)
+  - 130 = +30% amplification
+<li><strong>Control Methods</strong>:</li>
+  - <strong>Drag</strong>: Click and drag to adjust
+  - <strong>Mouse Wheel</strong>: Scroll over the knob
+  - <strong>Double-Click</strong>: Type exact value, press Enter to confirm
+<li><strong>Color</strong>: Cyan indicator</li></p><p><h4>5. Output Level Knob</h4>
+<ul><li><strong>Purpose</strong>: Controls the volume of outgoing Talk audio</li>
+<li><strong>Range</strong>: 0-130 (same as Input Level)</li>
+<li><strong>Control Methods</strong>: Same as Input Level</li>
+<li><strong>Color</strong>: Orange indicator</li></ul></p><p><h4>6. VU Meter</h4>
+<ul><li><strong>Purpose</strong>: Visual feedback of audio level</li>
+<li><strong>Color Code</strong>:</li></ul>
+  - <strong>Green</strong>: Normal levels (-20dB to -6dB)
+  - <strong>Yellow</strong>: Loud levels (-6dB to 0dB)
+  - <strong>Red</strong>: Clipping/distortion (avoid red!)
+<li><strong>Shows</strong>: Real-time audio activity for that channel</li></p><p><h3>Control Bar</h3></p><p><h4>START Button</h4>
+<ul><li><strong>Function</strong>: Begins audio streaming</li>
+<li><strong>Effect</strong>: Activates all audio processing</li>
+<li><strong>Status</strong>: Changes to "Streaming Active" (green)</li>
+<li><strong>Prerequisite</strong>: Devices must be configured in Settings</li></ul></p><p><h4>STOP Button</h4>
+<ul><li><strong>Function</strong>: Stops audio streaming</li>
+<li><strong>Effect</strong>: All Talk and Listen buttons are disabled</li>
+<li><strong>Status</strong>: Returns to "Idle" (gray)</li>
+<li><strong>Cleanup</strong>: Resets all channels</li></ul></p><p><h4>Settings Button</h4>
+<ul><li><strong>Function</strong>: Opens the Settings window</li>
+<li><strong>Note</strong>: Cannot change settings while streaming (stop first)</li></ul></p><p><h4>Log Toggle (▼/▲)</h4>
+<ul><li><strong>Function</strong>: Show or hide the log console</li>
+<li><strong>Purpose</strong>: View system messages, errors, and activity</li>
+<li><strong>Useful for</strong>: Troubleshooting and monitoring</li></ul></p><p><h3>Log Console</h3></p><p><ul><li><strong>Location</strong>: Bottom panel (toggle with ▼/▲)</li>
+<li><strong>Purpose</strong>: Real-time system messages</li>
+<li><strong>Messages Include</strong>:</li></ul>
+  - Device initialization
+  - Configuration changes
+  - Audio buffer status
+  - Error messages
+  - Web server status
+<li><strong>Tip</strong>: Always check the log if something isn't working</li></p><p>---</p><p><h2>Basic Operations</h2></p><p><h3>Starting the Intercom System</h3></p><p><ul><li><strong>Configure devices</strong> (if first time - see <a href="#first-time-setup">First-Time Setup</a>)</li>
+<li><strong>Click START</strong> in the control bar</li>
+<li><strong>Wait for confirmation</strong>:</li></ul>
+   - Status changes to "Streaming Active" (green)
+   - Log shows "Audio streaming started successfully"
+<li><strong>System is now ready</strong> for Talk and Listen operations</li></p><p><h3>Sending Audio (TALK)</h3></p><p><strong>To talk to a specific channel</strong>:</p><p><ul><li><strong>Ensure streaming is active</strong> (click START if not)</li>
+<li><strong>Click the TALK button</strong> on the desired channel</li></ul>
+   - Button turns <strong>RED</strong>
+   - Your microphone is now routed to that ASIO output
+<li><strong>Speak into your microphone</strong></li>
+   - The recipient on that ASIO channel will hear you
+<li><strong>Adjust Output Level</strong> if needed (orange knob)</li>
+   - Higher values = louder to recipient
+   - Lower values = quieter to recipient
+<li><strong>Click TALK again</strong> to stop sending</li>
+   - Button returns to gray</p><p><strong>To talk to multiple channels simultaneously</strong>:</p><p><ul><li><strong>Click TALK</strong> on Channel 1 (turns red)</li>
+<li><strong>Click TALK</strong> on Channel 3 (also turns red)</li>
+<li><strong>Click TALK</strong> on Channel 5 (also turns red)</li>
+<li><strong>Now speaking</strong> sends your microphone to channels 1, 3, and 5 simultaneously</li>
+<li>Each channel can have different Output Levels</li></ul></p><p><h3>Receiving Audio (LISTEN)</h3></p><p><strong>To listen to a specific channel</strong>:</p><p><ul><li><strong>Ensure streaming is active</strong> (click START if not)</li>
+<li><strong>Click the LISTEN button</strong> on the desired channel</li></ul>
+   - Button turns <strong>CYAN/BLUE</strong>
+   - Audio from that ASIO input is routed to your speakers
+<li><strong>Adjust Input Level</strong> if needed (cyan knob)</li>
+   - Higher values = louder in your speakers
+   - Lower values = quieter in your speakers
+<li><strong>Click LISTEN again</strong> to stop receiving</li>
+   - Button returns to gray</p><p><strong>To listen to multiple channels simultaneously</strong>:</p><p><li><strong>Click LISTEN</strong> on multiple channels</li>
+   - All active LISTEN channels turn cyan
+<li><strong>Audio is automatically mixed</strong></li>
+   - All selected channels are combined
+   - Automatic gain control prevents clipping
+   - Each channel retains its individual Input Level setting
+<li><strong>Adjust individual levels</strong> as needed</li>
+   - Balance different sources for optimal mix</p><p><h3>Adjusting Audio Levels</h3></p><p><h4>Method 1: Drag the Knob</h4></p><p><ul><li><strong>Click and hold</strong> on the rotary knob</li>
+<li><strong>Drag up or right</strong> to increase</li>
+<li><strong>Drag down or left</strong> to decrease</li>
+<li><strong>Release</strong> to set the value</li>
+<li><strong>Works anywhere</strong>: Mouse capture allows dragging outside the channel box</li></ul></p><p><h4>Method 2: Mouse Wheel</h4></p><p><ul><li><strong>Hover</strong> over the rotary knob</li>
+<li><strong>Scroll up</strong> to increase</li>
+<li><strong>Scroll down</strong> to decrease</li></ul></p><p><h4>Method 3: Keyboard Input (NEW in v1.1)</h4></p><p><ul><li><strong>Double-click</strong> on the rotary knob</li>
+<li><strong>A text box appears</strong> with current value</li>
+<li><strong>Type the desired value</strong> (0-130)</li>
+<li><strong>Press ENTER</strong> to apply</li>
+<li><strong>Press ESC</strong> to cancel</li></ul></p><p><strong>Example</strong>: To set exactly 85:
+<ul><li>Double-click knob</li>
+<li>Type "85"</li>
+<li>Press Enter</li></ul></p><p><h3>Understanding Audio Levels</h3></p><p><strong>Input Level</strong> (Cyan knob):
+<ul><li>Affects how loud you hear incoming LISTEN audio</li>
+<li>Does NOT affect what the remote person hears</li>
+<li>Personal monitoring preference</li></ul></p><p><strong>Output Level</strong> (Orange knob):
+<ul><li>Affects how loud your TALK is sent to the remote channel</li>
+<li>Does NOT affect what you hear</li>
+<li>Important: Set appropriately to avoid distortion</li></ul></p><p><strong>Recommended Starting Values</strong>:
+<ul><li>Input Level: <strong>100</strong> (unity gain)</li>
+<li>Output Level: <strong>100</strong> (unity gain)</li>
+<li>Adjust from there based on needs</li></ul></p><p><h3>Monitoring with VU Meters</h3></p><p><strong>Watch the VU meters</strong> for each channel:</p><p><li><strong>No activity</strong>: Meter stays at zero</li>
+  - Check connections and settings
+<li><strong>Green bars</strong>: Healthy audio levels</li>
+  - Good signal strength
+  - No distortion
+<li><strong>Yellow bars</strong>: Loud but acceptable</li>
+  - Approaching maximum
+  - Consider reducing levels slightly
+<li><strong>Red bars</strong>: CLIPPING/DISTORTION</li>
+  - Reduce Input or Output Level immediately
+  - Audio quality is degraded</p><p><h3>Stopping the System</h3></p><p><ul><li><strong>Click STOP</strong> in the control bar</li>
+<li><strong>All channels deactivate</strong>:</li></ul>
+   - Talk buttons return to gray
+   - Listen buttons return to gray
+   - Audio streaming stops
+<ul><li><strong>Status</strong> changes to "Idle"</li>
+<li><strong>System is now idle</strong> and can be reconfigured or closed</li></ul></p><p>---</p><p><h2>Advanced Features</h2></p><p><h3>Channel Naming</h3></p><p><strong>Custom channel names</strong> help identify sources:</p><p><ul><li><strong>Open Settings</strong></li>
+<li><strong>For each channel</strong>, enter a descriptive name:</li></ul>
+   - "Studio A"
+   - "Control Room"
+   - "Drummer"
+   - "Guest 1"
+   - etc.
+<ul><li><strong>Click OK</strong> to save</li>
+<li>Names appear on channel strips and web interface</li></ul></p><p><h3>Complex Routing Scenarios</h3></p><p><h4>Scenario 1: Producer to Multiple Musicians</h4></p><p><strong>Setup</strong>:
+<ul><li>Channels 1-4: Individual musicians (Drummer, Guitarist, Bassist, Vocalist)</li>
+<li>Channel 5: Producer's monitoring</li></ul></p><p><strong>Operation</strong>:
+<ul><li><strong>Listen</strong> to Channel 5 (hear producer cues)</li>
+<li><strong>Talk</strong> to Channels 1, 2, 3, 4 simultaneously (send instructions to all)</li>
+<li><strong>Adjust Output Levels</strong> individually if some need louder cues</li></ul></p><p><h4>Scenario 2: Selective Talkback</h4></p><p><strong>Setup</strong>:
+<ul><li>Channels 1-3: Talent booths</li>
+<li>Channels 4-8: Technical positions</li></ul></p><p><strong>Operation</strong>:
+<ul><li><strong>Talk to Channel 1 only</strong> (private direction to talent)</li>
+<li><strong>Talk to Channels 4, 5, 6</strong> (technical coordination)</li>
+<li><strong>Listen to Channel 1</strong> (hear talent response)</li></ul></p><p><h4>Scenario 3: Multi-Room Conference</h4></p><p><strong>Setup</strong>:
+<li>Each channel represents a different room or participant</li></p><p><strong>Operation</strong>:
+<ul><li><strong>Moderator</strong>: Talk to all channels (simultaneous broadcast)</li>
+<li><strong>Listen to specific channels</strong> for questions</li>
+<li><strong>Dynamic routing</strong>: Enable/disable channels as needed</li></ul></p><p><h3>Buffer Size Optimization</h3></p><p><strong>Finding the right buffer size</strong>:</p><p><ul><li><strong>Start with 100ms</strong> (default)</li>
+<li><strong>If you experience</strong>:</li></ul>
+   - <strong>Dropouts/crackling</strong>: INCREASE buffer (150ms, 200ms)
+   - <strong>Noticeable delay</strong>: DECREASE buffer (70ms, 50ms)
+<li><strong>Test while streaming</strong>:</li>
+   - Stop streaming
+   - Open Settings
+   - Change buffer size
+   - Click OK
+   - Start streaming
+   - Test audio quality
+<li><strong>Optimal setting</strong> depends on:</li>
+   - Computer CPU power
+   - ASIO driver quality
+   - Audio interface capabilities
+   - Number of active channels</p><p><h3>Latency Considerations</h3></p><p><strong>Total system latency</strong> includes:
+<ul><li>ASIO driver latency (buffer size dependent)</li>
+<li>WDM device latency</li>
+<li>Processing time</li></ul></p><p><strong>Typical latencies</strong>:
+<ul><li><strong>30ms buffer</strong>: ~10-15ms total (excellent for live work)</li>
+<li><strong>100ms buffer</strong>: ~30-40ms total (acceptable for most uses)</li>
+<li><strong>200ms buffer</strong>: ~60-80ms total (noticeable but stable)</li></ul></p><p><strong>Reducing latency</strong>:
+<ul><li>Use native ASIO drivers (not ASIO4ALL)</li>
+<li>Reduce buffer size</li>
+<li>Close unnecessary applications</li>
+<li>Use wired network (not Wi-Fi) for remote control</li></ul></p><p><h3>Saving and Loading Configurations</h3></p><p><strong>Automatic saving</strong>:
+<ul><li>Settings are saved when you click "OK" in Settings</li>
+<li>Stored in: </code>intercom_settings.json<code> (same folder as executable)</li>
+<li>Automatically loaded on next launch</li></ul></p><p><strong>Manual backup</strong>:
+<li><strong>Locate</strong> </code>intercom_settings.json<code></li>
+   - Installed version: </code>C:\Program Files\MediaNews Intercom\<code>
+   - Portable version: Same folder as </code>.exe<code>
+<ul><li><strong>Copy</strong> to a backup location</li>
+<li><strong>Restore</strong> by copying back</li></ul></p><p><strong>Multiple configurations</strong>:
+<ul><li>Rename </code>intercom_settings.json<code> for different setups</li>
+<li>Example:</li></ul>
+  - </code>intercom_settings_studio_A.json<code>
+  - </code>intercom_settings_live_show.json<code>
+  - </code>intercom_settings_podcast.json<code>
+<li>Rename the desired config to </code>intercom_settings.json<code> before launching</li></p><p>---</p><p><h2>Web Remote Control</h2></p><p><h3>Overview</h3></p><p>The web interface allows you to <strong>control MediaNews Intercom from any device</strong> on your local network using a web browser (smartphone, tablet, laptop).</p><p><strong>Features</strong>:
+<ul><li>Control all 8 channels (Talk/Listen)</li>
+<li>Adjust all Input and Output levels</li>
+<li>Real-time VU meter</li>
+<li>Responsive design (works on mobile)</li>
+<li>No app installation required</li></ul></p><p><h3>Enabling Network Access</h3></p><p><h4>Option 1: During Installation</h4></p><p><ul><li>Check "Enable network access" during installation</li>
+<li>Firewall rules are configured automatically</li></ul></p><p><h4>Option 2: After Installation</h4></p><p><li><strong>Find</strong> the "Enable Network Access" shortcut in Start Menu</li>
+   - Start → MediaNews Intercom → Enable Network Access
+<ul><li><strong>Or</strong> run </code>ENABLE_NETWORK_ACCESS.bat<code> from installation folder</li>
+<li><strong>Right-click</strong> → "Run as Administrator"</li>
+<li><strong>Follow prompts</strong> to configure firewall</li></ul></p><p><h4>Option 3: Manual Configuration</h4></p><p>Open <strong>PowerShell as Administrator</strong> and run:
+</code>`<code>powershell
+<h1>Allow HTTP listener</h1>
+netsh http add urlacl url=http://+:8080/ user=Everyone</p><p><h1>Add firewall rule</h1>
+netsh advfirewall firewall add rule name="MediaNews Intercom Web 8080" dir=in action=allow protocol=TCP localport=8080
+</code>`<code></p><p><h3>Finding Your IP Address</h3></p><p>When you <strong>start MediaNews Intercom</strong>, check the <strong>log console</strong>:</p><p></code>`<code>
+======================================
+WEB SERVER STARTED SUCCESSFULLY
+======================================
+Local access:   http://localhost:8080/
+Network access: http://192.168.1.100:8080/
+======================================
+</code>`<code></p><p>Your <strong>network IP address</strong> is shown (example: </code>192.168.1.100<code>)</p><p><strong>Alternative method</strong>:
+<ul><li>Open Command Prompt</li>
+<li>Type: </code>ipconfig<code></li>
+<li>Look for "IPv4 Address" under your network adapter</li>
+<li>Example: </code>192.168.1.100<code></li></ul></p><p><h3>Accessing the Web Interface</h3></p><p><h4>From the Same Computer</h4></p><p>Open your web browser and navigate to:
+</code>`<code>
+http://localhost:8080/
+</code>`<code></p><p><h4>From Another Device (Same Network)</h4></p><p><li><strong>Ensure both devices are on the same network</strong></li>
+   - Same Wi-Fi network, or
+   - Same wired network
+<li><strong>Get the server IP</strong> (from log console)</li>
+   - Example: </code>192.168.1.100<code>
+<ul><li><strong>Open a web browser</strong> on the remote device</li>
+<li><strong>Navigate to</strong>:</li></ul>
+   </code>`<code>
+   http://192.168.1.100:8080/
+   </code>`<code>
+   (Use YOUR IP address, not this example)</p><p><h3>Using the Web Interface</h3></p><p><h4>Interface Layout</h4></p><p></code>`<code>
+┌─────────────────────────────────────────┐
+│ MediaNews Intercom - Remote Control     │
+│ [VU Meter==================]  Connected │
+├─────────────────────────────────────────┤
+│  ┌──────────┐  ┌──────────┐            │
+│  │Channel 1 │  │Channel 2 │  ...       │
+│  │[  TALK  ]│  │[  TALK  ]│            │
+│  │[ LISTEN ]│  │[ LISTEN ]│            │
+│  │ ━━━━━━ 100│  │ ━━━━━━ 100│          │
+│  │ ━━━━━━ 100│  │ ━━━━━━ 100│          │
+│  └──────────┘  └──────────┘            │
+└─────────────────────────────────────────┘
+</code>`<code></p><p><h4>Controls</h4></p><p><strong>TALK Button</strong>:
+<ul><li>Tap to toggle Talk on/off</li>
+<li><strong>Red</strong> = Active</li>
+<li><strong>Gray</strong> = Inactive</li></ul></p><p><strong>LISTEN Button</strong>:
+<ul><li>Tap to toggle Listen on/off</li>
+<li><strong>Green</strong> = Active</li>
+<li><strong>Gray</strong> = Inactive</li></ul></p><p><strong>Input Level Slider</strong>:
+<ul><li>Drag slider left/right to adjust (0-130)</li>
+<li>Value displayed on right</li>
+<li>Real-time update to application</li></ul></p><p><strong>Output Level Slider</strong>:
+<ul><li>Drag slider left/right to adjust (0-130)</li>
+<li>Value displayed on right</li>
+<li>Real-time update to application</li></ul></p><p><h4>Status Indicators</h4></p><p><strong>Connection Status</strong> (top right):
+<ul><li><strong>Green "Connected"</strong>: Successfully communicating with server</li>
+<li><strong>Red "Disconnected"</strong>: Lost connection to server</li></ul></p><p><strong>VU Meter</strong> (top):
+<ul><li>Shows master input level</li>
+<li>Updates every 200ms</li>
+<li>Color gradient from green to yellow to red</li></ul></p><p><h4>Mobile Tips</h4></p><p><strong>For best mobile experience</strong>:
+<ul><li>Use landscape orientation for 8-channel view</li>
+<li>Portrait mode stacks channels vertically</li>
+<li>Tap buttons with finger</li>
+<li>Drag sliders smoothly</li>
+<li>Works on iOS, Android, and tablets</li></ul></p><p><h3>Troubleshooting Web Access</h3></p><p><strong>Problem</strong>: Cannot access from another device</p><p><strong>Solutions</strong>:
+<li><strong>Check firewall</strong>:</li>
+   - Run </code>ENABLE_NETWORK_ACCESS.bat<code> as Administrator
+   - Or manually configure firewall (see above)</p><p><li><strong>Verify both devices on same network</strong>:</li>
+   - Same Wi-Fi network name
+   - Or both on wired network
+   - Cannot access across different networks (e.g., guest Wi-Fi vs. main network)</p><p><li><strong>Check the IP address</strong>:</li>
+   - Use the IP shown in the log console
+   - IP may change if using DHCP
+   - Consider setting a static IP for the server computer</p><p><li><strong>Test localhost first</strong>:</li>
+   - On the server computer, try </code>http://localhost:8080/<code>
+   - If this works, the server is running
+   - Problem is network/firewall related</p><p><li><strong>Disable antivirus temporarily</strong>:</li>
+   - Some antivirus software blocks HTTP servers
+   - Test with antivirus disabled
+   - If this fixes it, add exception for MediaNews Intercom</p><p><strong>Problem</strong>: "Disconnected" status in web interface</p><p><strong>Solutions</strong>:
+<ul><li><strong>Refresh the page</strong> (browser refresh)</li>
+<li><strong>Check if application is running</strong> on server</li>
+<li><strong>Verify START button clicked</strong> (streaming active)</li>
+<li><strong>Check network connection</strong> between devices</li></ul></p><p>---</p><p><h2>Troubleshooting</h2></p><p><h3>No Audio / Cannot Hear Anything</h3></p><p><strong>Possible Causes & Solutions</strong>:</p><p><li><strong>System not started</strong></li>
+   - ✅ Click the <strong>START</strong> button
+   - Look for "Streaming Active" status</p><p><li><strong>No Listen channels active</strong></li>
+   - ✅ Click <strong>LISTEN</strong> on the channel you want to hear
+   - Button should turn cyan/blue</p><p><li><strong>Input Level too low</strong></li>
+   - ✅ Check the cyan knob (Input Level)
+   - Try setting to 100 or higher</p><p><li><strong>Wrong speaker selected</strong></li>
+   - ✅ Open Settings
+   - ✅ Verify Speaker (WDM Output) is correct
+   - ✅ Test with different output device</p><p><li><strong>ASIO device not sending audio</strong></li>
+   - ✅ Check ASIO Input Channel mapping
+   - ✅ Verify physical connections to ASIO interface
+   - ✅ Test ASIO device with other software</p><p><li><strong>VU meter shows no activity</strong></li>
+   - ✅ No audio is arriving from ASIO
+   - ✅ Check cables and ASIO input routing</p><p><h3>Talk Not Working / Others Can't Hear Me</h3></p><p><strong>Possible Causes & Solutions</strong>:</p><p><li><strong>Talk not activated</strong></li>
+   - ✅ Click <strong>TALK</strong> on desired channel
+   - Button should turn red</p><p><li><strong>Wrong microphone selected</strong></li>
+   - ✅ Open Settings
+   - ✅ Verify Microphone (WDM Input) is correct
+   - ✅ Test microphone in other applications</p><p><li><strong>Output Level too low</strong></li>
+   - ✅ Check orange knob (Output Level)
+   - ✅ Try setting to 100 or higher</p><p><li><strong>Microphone muted in Windows</strong></li>
+   - ✅ Right-click speaker icon in taskbar
+   - ✅ Open Sound settings
+   - ✅ Check microphone is not muted
+   - ✅ Adjust Windows microphone level</p><p><li><strong>ASIO output channel incorrect</strong></li>
+   - ✅ Open Settings
+   - ✅ Verify ASIO Output Channel mapping
+   - ✅ Check recipient is monitoring correct ASIO input</p><p><h3>Application Won't Start / Crashes</h3></p><p><strong>Solutions</strong>:</p><p><li><strong>Missing .NET Runtime</strong></li>
+   - ✅ Installer version includes runtime (use this)
+   - ✅ Or download .NET 8.0 Runtime from Microsoft</p><p><li><strong>ASIO driver not installed</strong></li>
+   - ✅ Install ASIO4ALL or your interface's driver
+   - ✅ Restart computer after installing</p><p><li><strong>Corrupted settings file</strong></li>
+   - ✅ Close application
+   - ✅ Delete </code>intercom_settings.json<code>
+   - ✅ Restart and reconfigure</p><p><li><strong>Antivirus blocking</strong></li>
+   - ✅ Add exception for MediaNews-Intercom.exe
+   - ✅ Test with antivirus temporarily disabled</p><p><li><strong>Check log file</strong></li>
+   - ✅ Look for error messages in console
+   - ✅ Screenshot and report issues on GitHub</p><p><h3>Audio Dropouts / Crackling / Glitches</h3></p><p><strong>Solutions</strong>:</p><p><li><strong>Increase buffer size</strong></li>
+   - ✅ Stop streaming
+   - ✅ Open Settings
+   - ✅ Increase buffer to 150ms or 200ms
+   - ✅ Click OK and restart</p><p><li><strong>Close other applications</strong></li>
+   - ✅ Close web browsers
+   - ✅ Close DAWs or other audio software
+   - ✅ Close unnecessary background apps</p><p><li><strong>Check CPU usage</strong></li>
+   - ✅ Open Task Manager
+   - ✅ If CPU > 80%, close applications
+   - ✅ Consider using more powerful computer</p><p><li><strong>Update ASIO driver</strong></li>
+   - ✅ Check manufacturer's website for latest driver
+   - ✅ Install and restart</p><p><li><strong>USB power issues</strong> (if using USB audio)</li>
+   - ✅ Connect to USB port directly on computer (not hub)
+   - ✅ Use USB 3.0 port if available
+   - ✅ Try different USB cable</p><p><h3>High Latency / Noticeable Delay</h3></p><p><strong>Solutions</strong>:</p><p><li><strong>Reduce buffer size</strong></li>
+   - ✅ Stop streaming
+   - ✅ Open Settings
+   - ✅ Try 50ms or 70ms
+   - ✅ Monitor for dropouts</p><p><li><strong>Use native ASIO driver</strong></li>
+   - ✅ Replace ASIO4ALL with manufacturer's driver
+   - ✅ Native drivers typically have lower latency</p><p><li><strong>Optimize ASIO settings</strong></li>
+   - ✅ Open ASIO driver control panel
+   - ✅ Reduce ASIO buffer size
+   - ✅ Usually accessible from Windows system tray</p><p><li><strong>Disable Windows audio enhancements</strong></li>
+   - ✅ Right-click speaker icon → Sounds
+   - ✅ Select your playback device → Properties
+   - ✅ Enhancements tab → Disable all enhancements</p><p><h3>Feedback / Echo Issues</h3></p><p><strong>Solutions</strong>:</p><p><li><strong>Use headphones</strong></li>
+   - ✅ Never use speakers while Talk is active
+   - ✅ Always use closed-back headphones
+   - ✅ Keep microphone away from speakers</p><p><li><strong>Reduce output levels</strong></li>
+   - ✅ Lower Output Level knobs
+   - ✅ Reduce Input Level knobs</p><p><li><strong>Mute Listen when not needed</strong></li>
+   - ✅ Only activate Listen when you need to hear
+   - ✅ Deactivate immediately after</p><p><li><strong>Don't Talk and Listen on same channel</strong></li>
+   - ✅ If Channel 1 Talk is active, don't activate Channel 1 Listen
+   - ✅ This creates a feedback loop</p><p><h3>"Please configure devices in Settings first"</h3></p><p><strong>Solution</strong>:
+<ul><li>✅ Click Settings</li>
+<li>✅ Select all three devices (Microphone, Speaker, ASIO)</li>
+<li>✅ Click OK</li>
+<li>✅ Try START again</li></ul></p><p><h3>Web Interface Not Accessible</h3></p><p>See <a href="#troubleshooting-web-access">Web Remote Control → Troubleshooting Web Access</a> section above.</p><p>---</p><p><h2>Best Practices</h2></p><p><h3>For Professional Use</h3></p><p><li><strong>Dedicated Computer</strong></li>
+   - Use a dedicated computer for intercom only
+   - Don't run other audio applications simultaneously
+   - Minimize background processes</p><p><li><strong>Quality Audio Interface</strong></li>
+   - Use professional ASIO interface (RME, MOTU, UA, Focusrite)
+   - Ensure at least 8 input and 8 output channels
+   - Keep drivers updated</p><p><li><strong>Proper Cabling</strong></li>
+   - Use balanced XLR or TRS cables
+   - Keep cable runs as short as practical
+   - Label all cables for easy troubleshooting</p><p><li><strong>Backup Configuration</strong></li>
+   - Save </code>intercom_settings.json<code> in multiple locations
+   - Document your channel routing
+   - Keep a printed diagram of your setup</p><p><h3>For Live Events</h3></p><p><li><strong>Test Before Event</strong></li>
+   - Complete sound check days before
+   - Test all Talk and Listen paths
+   - Verify web remote control access
+   - Have backup plan ready</p><p><li><strong>Buffer Settings</strong></li>
+   - Use 100-150ms for stability
+   - Don't prioritize low latency over reliability
+   - Test with full load (all channels active)</p><p><li><strong>Redundancy</strong></li>
+   - Have backup microphone ready
+   - Keep spare headphones available
+   - Consider dual computer setup for critical events</p><p><h3>For Recording Studios</h3></p><p><li><strong>Low Latency Setup</strong></li>
+   - Use 30-70ms buffer
+   - Native ASIO drivers
+   - Powerful CPU (i7/i9 or Ryzen 7/9)
+   - SSD for operating system</p><p><li><strong>Clear Communication</strong></li>
+   - Name channels clearly (Control Room, Booth A, etc.)
+   - Use consistent Talk/Listen patterns
+   - Train all users on the system</p><p><li><strong>Integration</strong></li>
+   - Coordinate with DAW playback
+   - Use separate monitoring paths
+   - Consider using digital patchbay</p><p><h3>For Broadcasting</h3></p><p><li><strong>Reliability First</strong></li>
+   - Higher buffer sizes (150-200ms)
+   - Wired network only (no Wi-Fi for critical paths)
+   - UPS power backup
+   - Tested and documented procedures</p><p><li><strong>Monitoring</strong></li>
+   - Always watch VU meters
+   - Keep levels in green range
+   - Monitor log console for errors</p><p><li><strong>Emergency Procedures</strong></li>
+   - Document manual fallback procedures
+   - Train backup operators
+   - Keep printed manual accessible</p><p><h3>Audio Level Management</h3></p><p><li><strong>Start Conservative</strong></li>
+   - Begin with all levels at 100
+   - Gradually adjust as needed
+   - Avoid exceeding 120 unless necessary</p><p><li><strong>Watch VU Meters</strong></li>
+   - Green = Good
+   - Yellow = Caution
+   - Red = Reduce immediately</p><p><li><strong>Consistent Levels</strong></li>
+   - Set similar Output Levels for all Talk channels
+   - Set similar Input Levels for all Listen channels
+   - Document your "standard" settings</p><p><li><strong>Prevent Distortion</strong></li>
+   - If clipping occurs, reduce Output Level first
+   - If still clipping, reduce Input Level
+   - Never exceed 130 on both knobs simultaneously</p><p><h3>Network Security</h3></p><p><li><strong>Local Network Only</strong></li>
+   - Never expose to public internet
+   - Use private IP addresses only
+   - Consider VPN for remote access</p><p><li><strong>Firewall</strong></li>
+   - Keep firewall enabled
+   - Only allow port 8080 for intercom
+   - Monitor for unauthorized access</p><p><li><strong>Physical Security</strong></li>
+   - Restrict access to server computer
+   - Use screen lock when unattended
+   - Consider password protecting system</p><p>---</p><p><h2>FAQ</h2></p><p><h3>General Questions</h3></p><p><strong>Q: What does "Intercom" mean in this context?</strong></p><p>A: An intercom system allows selective point-to-point communication. In professional audio, it means you can talk to specific channels (people/rooms) individually or in groups, and listen to specific channels independently.</p><p><strong>Q: Can I use this with a regular USB microphone and headphones?</strong></p><p>A: Yes, for your Talk microphone and Listen speakers (WDM devices). However, you still need an ASIO-compatible audio interface for the 8 channels.</p><p><strong>Q: Do I need an expensive audio interface?</strong></p><p>A: Not necessarily. Even a budget 8-channel interface will work. Quality affects latency and audio quality, but the software works with any ASIO device.</p><p><strong>Q: Is ASIO4ALL good enough?</strong></p><p>A: ASIO4ALL works for testing and light use. For professional applications, a native ASIO driver from your interface manufacturer is recommended for better performance and lower latency.</p><p><h3>Technical Questions</h3></p><p><strong>Q: What is the difference between Input Level and Output Level?</strong></p><p>A:
+<ul><li><strong>Input Level</strong> (cyan): Controls volume of incoming Listen audio (what YOU hear)</li>
+<li><strong>Output Level</strong> (orange): Controls volume of outgoing Talk audio (what THEY hear)</li></ul></p><p><strong>Q: Can I use more than 8 channels?</strong></p><p>A: Currently, the software supports exactly 8 channels. Future versions may support more. The architecture is designed to be extensible.</p><p><strong>Q: What audio sample rates are supported?</strong></p><p>A: The system automatically adapts to your microphone's sample rate. Common rates (44.1kHz, 48kHz, 96kHz) all work. The ASIO driver handles its own sample rate.</p><p><strong>Q: Can I record the intercom communications?</strong></p><p>A: Not directly within this application. However, you can use your ASIO interface's routing software or a DAW to record the ASIO inputs and outputs.</p><p><strong>Q: What is the audio quality/bitrate?</strong></p><p>A: Audio is processed in 32-bit floating point internally, with quality determined by your ASIO interface. There is no compression or quality loss in the software.</p><p><h3>Setup Questions</h3></p><p><strong>Q: Why do I need both WDM and ASIO devices?</strong></p><p>A: WDM (Windows standard) handles your personal microphone and headphones. ASIO handles the professional multi-channel interface. This separation allows you to use a simple USB headset for personal monitoring while routing professional audio through ASIO.</p><p><strong>Q: Can I use the same device for both WDM and ASIO?</strong></p><p>A: Generally not recommended and may cause conflicts. Some interfaces support this, but it's better to use separate devices (e.g., USB headset for WDM, professional interface for ASIO).</p><p><strong>Q: My ASIO device doesn't appear in the list. What should I do?</strong></p><p>A:
+<ul><li>Ensure the ASIO driver is installed</li>
+<li>Restart the application</li>
+<li>Check if the device works in other ASIO applications</li>
+<li>Try reinstalling the ASIO driver</li></ul></p><p><strong>Q: What buffer size should I use?</strong></p><p>A:
+<ul><li><strong>Live work</strong>: 50-100ms</li>
+<li><strong>General use</strong>: 100-150ms</li>
+<li><strong>Stability priority</strong>: 150-300ms</li>
+<li>Start at 100ms and adjust based on your experience.</li></ul></p><p><h3>Operation Questions</h3></p><p><strong>Q: Can I Talk and Listen on the same channel simultaneously?</strong></p><p>A: Technically yes, but NOT recommended. This creates a feedback loop. Use Talk to send and Listen to receive on different channels.</p><p><strong>Q: How many channels can I Talk to at once?</strong></p><p>A: All 8 simultaneously if needed. Each channel's Talk button can be independently activated.</p><p><strong>Q: How many channels can I Listen to at once?</strong></p><p>A: All 8 simultaneously. The software automatically mixes them together with level balancing.</p><p><strong>Q: The VU meter is always red. Is this bad?</strong></p><p>A: Yes! Red indicates clipping/distortion. Reduce the Input Level or Output Level until the meter stays mostly green with occasional yellow peaks.</p><p><strong>Q: Can I change settings while streaming?</strong></p><p>A: No, you must click STOP first, then open Settings, make changes, click OK, then START again.</p><p><h3>Web Interface Questions</h3></p><p><strong>Q: Can I access the web interface over the internet?</strong></p><p>A: Not by default (security reasons). It's designed for local network only. You could set up port forwarding or VPN, but this is not officially supported.</p><p><strong>Q: What browsers are supported?</strong></p><p>A: All modern browsers: Chrome, Firefox, Safari, Edge. Mobile browsers (iOS Safari, Android Chrome) also work.</p><p><strong>Q: Can multiple people control via web interface simultaneously?</strong></p><p>A: Yes, multiple browsers can connect. All changes are synchronized in real-time. Be careful with conflicting commands.</p><p><strong>Q: Does the web interface work if I close the main application window?</strong></p><p>A: No, the main application must be running for the web server to work.</p><p><strong>Q: Why is my IP address different from last time?</strong></p><p>A: Most networks use DHCP, which assigns dynamic IP addresses. Consider setting a static IP for the server computer if this is problematic.</p><p><h3>Troubleshooting Questions</h3></p><p><strong>Q: I get "Error starting streaming". What does this mean?</strong></p><p>A: The audio system couldn't initialize. Common causes:
+<ul><li>Another application is using the ASIO device</li>
+<li>Devices not properly configured in Settings</li>
+<li>ASIO driver crashed (restart computer)</li>
+<li>Buffer size too small (increase it)</li></ul></p><p><strong>Q: Audio is delayed/echoing. How do I fix this?</strong></p><p>A: Reduce buffer size for less latency. If echo persists, you may have a feedback loop—disable Listen on channels where Talk is active.</p><p><strong>Q: Can I run multiple instances of MediaNews Intercom?</strong></p><p>A: No, only one instance can control an ASIO device at a time. Running multiple instances will cause conflicts.</p><p><strong>Q: The application is slow/laggy. What can I do?</strong></p><p>A:
+<ul><li>Close other applications</li>
+<li>Increase buffer size</li>
+<li>Update graphics drivers</li>
+<li>Check CPU usage in Task Manager</li>
+<li>Consider a faster computer</li></ul></p><p><h3>Licensing & Support Questions</h3></p><p><strong>Q: Is this free software?</strong></p><p>A: Yes, MediaNews Intercom is open source under the MIT License. You can use it for free, even commercially.</p><p><strong>Q: Can I modify the source code?</strong></p><p>A: Yes! The MIT License allows modification, redistribution, and commercial use. Source code is available on GitHub.</p><p><strong>Q: Where do I report bugs?</strong></p><p>A: Please report issues on the GitHub repository: https://github.com/robertomusso/medianews-intercom/issues</p><p><strong>Q: Can I request new features?</strong></p><p>A: Absolutely! Open a feature request on GitHub. Community contributions are welcome.</p><p><strong>Q: Is there commercial support available?</strong></p><p>A: This is a community project. Support is provided through GitHub issues and community forums. For commercial support, you may hire a developer to customize the software.</p><p>---</p><p><h2>Appendix A: Keyboard Shortcuts</h2></p><p>Currently, MediaNews Intercom does not have keyboard shortcuts. This may be added in a future version.</p><p><strong>Feature Request</strong>: If you'd like keyboard shortcuts (e.g., hotkeys for Talk buttons), please request this feature on GitHub!</p><p>---</p><p><h2>Appendix B: Technical Specifications</h2></p><p><h3>Audio Processing</h3></p><p><ul><li><strong>Internal Processing</strong>: 32-bit IEEE floating point</li>
+<li><strong>Sample Rates</strong>: Adapts to WDM microphone rate (typically 44.1kHz or 48kHz)</li>
+<li><strong>Latency</strong>: Configurable via buffer size (10-500ms)</li>
+<li><strong>Channels</strong>: 8 independent bidirectional channels</li>
+<li><strong>Mixing</strong>: Automatic gain-controlled mixing for multiple Listen channels</li></ul></p><p><h3>System Architecture</h3></p><p><ul><li><strong>Framework</strong>: .NET 8.0 (Windows)</li>
+<li><strong>Audio Library</strong>: NAudio 2.2.1</li>
+<li><strong>ASIO Support</strong>: NAudio.Asio 2.2.1</li>
+<li><strong>WDM Support</strong>: NAudio.Wasapi</li>
+<li><strong>Web Server</strong>: Built-in HTTP server (port 8080)</li>
+<li><strong>Configuration</strong>: JSON file storage</li></ul></p><p><h3>File Locations</h3></p><p><strong>Installed Version</strong>:
+<ul><li>Application: </code>C:\Program Files\MediaNews Intercom\<code></li>
+<li>Configuration: </code>C:\Program Files\MediaNews Intercom\intercom_settings.json<code></li>
+<li>Logs: Console only (not saved to file)</li></ul></p><p><strong>Portable Version</strong>:
+<ul><li>Application: </code>[Extraction folder]<code></li>
+<li>Configuration: </code>[Extraction folder]\intercom_settings.json`</li></ul></p><p><h3>Network Specifications</h3></p><p><ul><li><strong>Protocol</strong>: HTTP (not HTTPS)</li>
+<li><strong>Port</strong>: 8080 (hardcoded)</li>
+<li><strong>Update Rate</strong>: 200ms (5 times per second)</li>
+<li><strong>CORS</strong>: Enabled (allows access from any origin)</li>
+<li><strong>Maximum Clients</strong>: Unlimited (limited by network bandwidth)</li></ul></p><p>---</p><p><h2>Appendix C: Credits & Acknowledgments</h2></p><p><h3>Software Components</h3></p><p><li><strong>NAudio</strong> by Mark Heath</li>
+  - Excellent .NET audio library
+  - https://github.com/naudio/NAudio
+  - License: MIT</p><p><li><strong>ASIO SDK</strong> by Steinberg</li>
+  - Professional audio interface standard
+  - https://www.steinberg.net/</p><p><h3>Development</h3></p><p><ul><li><strong>Created with</strong>: Claude Code (Anthropic)</li>
+<li><strong>Author</strong>: Roberto Musso</li>
+<li><strong>License</strong>: MIT License</li></ul></p><p><h3>Community</h3></p><p>Special thanks to:
+<ul><li>Beta testers and early adopters</li>
+<li>Contributors on GitHub</li>
+<li>NAudio community</li>
+<li>Professional audio community for feedback</li></ul></p><p>---</p><p><h2>Appendix D: Version History</h2></p><p><h3>Version 1.1.0 (Current)</h3></p><p><strong>Release Date</strong>: November 2025</p><p><strong>New Features</strong>:
+<ul><li>🌐 Complete web remote control interface</li>
+<li>🖱️ Enhanced rotary controls (mouse capture, keyboard input)</li>
+<li>🔧 Automatic network configuration tools</li>
+<li>📦 Professional Windows installer</li></ul></p><p><strong>Improvements</strong>:
+<ul><li>Rotary controls work outside channel box boundaries</li>
+<li>Double-click for direct numeric value entry</li>
+<li>Better diagnostic messages for network setup</li>
+<li>Improved stability and error handling</li></ul></p><p><strong>Bug Fixes</strong>:
+<ul><li>Fixed mouse tracking issues with level controls</li>
+<li>Improved web server reliability</li>
+<li>Better handling of ASIO driver edge cases</li></ul></p><p><h3>Version 1.0.0</h3></p><p><strong>Release Date</strong>: October 2025</p><p><strong>Features</strong>:
+<ul><li>8-channel professional intercom system</li>
+<li>Individual Talk and Listen controls</li>
+<li>Input and Output level adjustment (0-130)</li>
+<li>ASIO and WDM device support</li>
+<li>Real-time VU meters</li>
+<li>Channel mapping configuration</li>
+<li>Settings persistence</li>
+<li>Dark theme UI</li></ul></p><p>---</p><p><h2>Getting Help</h2></p><p><h3>Documentation</h3></p><p><ul><li><strong>This Manual</strong>: Complete user guide</li>
+<li><strong>README.md</strong>: Quick start and overview</li>
+<li><strong>BUILD_INSTRUCTIONS.md</strong>: For developers</li>
+<li><strong>GITHUB_RELEASE_GUIDE.md</strong>: For maintainers</li></ul></p><p><h3>Online Resources</h3></p><p><ul><li><strong>GitHub Repository</strong>: https://github.com/robertomusso/medianews-intercom</li>
+<li><strong>Issues</strong>: https://github.com/robertomusso/medianews-intercom/issues</li>
+<li><strong>Releases</strong>: https://github.com/robertomusso/medianews-intercom/releases</li></ul></p><p><h3>Reporting Issues</h3></p><p>When reporting a bug, please include:</p><p><li><strong>System Information</strong>:</li>
+   - Windows version (10 or 11)
+   - MediaNews Intercom version
+   - ASIO driver name and version</p><p><li><strong>Steps to Reproduce</strong>:</li>
+   - Exact steps that cause the problem
+   - Expected behavior
+   - Actual behavior</p><p><li><strong>Log Output</strong>:</li>
+   - Screenshot of log console
+   - Error messages if any</p><p><li><strong>Configuration</strong>:</li>
+   - Device names
+   - Buffer size
+   - Channel mapping (if relevant)</p><p><h3>Contributing</h3></p><p>Contributions are welcome! See the repository for:
+<ul><li>Code contribution guidelines</li>
+<li>Feature requests</li>
+<li>Pull request process</li></ul></p><p>---</p><p><strong>Thank you for using MediaNews Intercom!</strong></p><p>For the latest updates and releases, visit:
+https://github.com/robertomusso/medianews-intercom</p><p>---</p><p><em>MediaNews Intercom v1.1 - User Manual</em>
+<em>Last Updated: November 2025</em>
+<em>Copyright © 2025 Roberto Musso - MIT License</em>
+</p>
+
+    <hr style="margin: 40pt 0; border: none; border-top: 2px solid #ecf0f1;">
+    <p style="text-align: center; color: #95a5a6; font-size: 10pt;">
+        <strong>MediaNews Intercom v1.1 - User Manual</strong><br>
+        Last Updated: November 2025<br>
+        Copyright Â© 2025 Roberto Musso - MIT License<br>
+        <a href="https://github.com/robertomusso/medianews-intercom">https://github.com/robertomusso/medianews-intercom</a>
+    </p>
+</body>
+</html>
