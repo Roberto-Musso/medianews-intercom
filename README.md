@@ -1,4 +1,4 @@
-# MediaNews Intercom - 8 Channel Professional Audio System
+# MediaNews Intercom - Software-Based 8 Channel Professional Audio System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
@@ -410,6 +410,15 @@ For issues, questions, or suggestions:
 - **Real-time Logging**: Integrated console for system monitoring
 - **VU Meters**: Real-time audio level visualization
 
+### Screenshots
+
+<img width="1922" height="572" alt="image" src="https://github.com/user-attachments/assets/6e8ec7e9-0f00-4af8-9d59-e9602071b583" />
+
+<img width="1922" height="572" alt="image" src="https://github.com/user-attachments/assets/56b8402c-3592-48b7-ade9-5de347a7e02f" />
+
+<img width="1124" height="810" alt="image" src="https://github.com/user-attachments/assets/311f50ec-7a1b-4b18-b384-0efdbe68644f" />
+
+
 ---
 
-**MediaNews Intercom v1.1** - Professional 8-Channel Communication Platform with Remote Web Control
+**MediaNews Intercom v1.1** - Software-Based 8-Channel Communication Platform with Remote Web Control
