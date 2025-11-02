@@ -297,15 +297,10 @@ AudioWdmToAsio/
 
 ## Possible Future Features
 
-- [ ] VU meters to visualize audio levels in real-time
 - [ ] Saveable/loadable presets for different configurations
-- [ ] Talkback with sidetone (hear yourself while talking)
-- [ ] Recording of intercom sessions
 - [ ] Support for more than 8 channels
-- [ ] Audio effects (EQ, compressor, gate, etc.)
 - [ ] Hotkeys/shortcuts for Talk and Listen
 - [ ] MIDI control for external control
-- [ ] Network streaming for remote intercom
 
 ## Best Practices
 
