@@ -1,4 +1,5 @@
-# MediaNews Intercom - Software-Based 8 Channel Professional Audio System
+# MediaNews Intercom - Software-Based 8 Channel Intercom
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
